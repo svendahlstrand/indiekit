@@ -1,6 +1,7 @@
 import getPostType from 'post-type-discovery';
 import HttpError from 'http-errors';
 import {mf2tojf2} from '@paulrobertlloyd/mf2tojf2';
+import {fetchReferences} from '@paulrobertlloyd/mf2tojf2/lib/fetch-references.js';
 import * as update from './update.js';
 import {
   renderPath,
@@ -29,12 +30,17 @@ export const postData = {
       const {me, postTypes, timeZone} = publication;
 
       // Post properties
-      const properties = mf2tojf2({items: [mf2]});
+      let properties = mf2tojf2({items: [mf2]});
 
       // Post type
       const type = getPostType(mf2);
       const typeConfig = getPostTypeConfig(type, postTypes);
       properties['post-type'] = type;
+
+      // Enrich post properties if enabled
+      if (publication.enrichPosts) {
+        properties = await fetchReferences(properties);
+      }
 
       // Post paths
       const path = renderPath(typeConfig.post.path, properties, timeZone);

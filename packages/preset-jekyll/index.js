@@ -146,7 +146,8 @@ export const JekyllPreset = class {
       ...(properties['post-status'] === 'draft' && {draft: true}),
       ...(properties.visibility && {visibility: properties.visibility}),
       ...(properties.syndication && {syndication: properties.syndication}),
-      ...(properties['mp-syndicate-to'] && {'mp-syndicate-to': properties['mp-syndicate-to']})
+      ...(properties['mp-syndicate-to'] && {'mp-syndicate-to': properties['mp-syndicate-to']}),
+      ...(properties.references && {references: properties.references})
     };
     let frontmatter = YAML.stringify(properties);
     frontmatter = `---\n${frontmatter}---\n`;

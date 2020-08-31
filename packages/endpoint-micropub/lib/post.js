@@ -23,7 +23,9 @@ export const post = {
       postData.lastAction = metaData.action;
 
       if (posts) {
-        await posts.insertOne(postData);
+        await posts.insertOne(postData, {
+          checkKeys: false
+        });
       }
 
       return {
@@ -64,7 +66,9 @@ export const post = {
       if (posts) {
         await posts.replaceOne({
           'properties.url': postData.properties.url
-        }, postData);
+        }, postData, {
+          checkKeys: false
+        });
       }
 
       const hasUpdatedUrl = (url !== postData.properties.url);
@@ -106,7 +110,9 @@ export const post = {
       if (posts) {
         await posts.replaceOne({
           'properties.url': postData.properties.url
-        }, postData);
+        }, postData, {
+          checkKeys: false
+        });
       }
 
       return {
@@ -150,7 +156,9 @@ export const post = {
       if (posts) {
         await posts.replaceOne({
           'properties.url': postData.properties.url
-        }, postData);
+        }, postData, {
+          checkKeys: false
+        });
       }
 
       return {
