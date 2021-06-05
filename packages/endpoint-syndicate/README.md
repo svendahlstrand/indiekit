@@ -18,4 +18,4 @@ const syndicateEndpoint = new SyndicateEndpoint({
 
 ### Options
 
-* `mountpath`: Path to share screen. *Optional*, defaults to `/syndicate`.
+- `mountpath`: Path to share screen. _Optional_, defaults to `/syndicate`.

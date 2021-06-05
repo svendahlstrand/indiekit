@@ -25,39 +25,39 @@ You can get your Twitter API keys from <https://developer.twitter.com/>.
 Your Twitter API key.
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `apiKeySecret`
 
 Your Twitter API secret key.
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `accessToken`
 
 Your Twitter access token.
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `accessTokenSecret`
 
 Your Twitter access token secret.
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `user`
 
 Your Twitter username (without the `@`).
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `checked`
 
 Tell a Micropub client whether this syndicator should be enabled by default.
 
 Type: `boolean`\
-*Optional*, defaults to `false`
+_Optional_, defaults to `false`

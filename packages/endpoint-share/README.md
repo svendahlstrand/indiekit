@@ -18,4 +18,4 @@ const shareEndpoint = new ShareEndpoint({
 
 ### Options
 
-* `mountpath`: Path to share screen. *Optional*, defaults to `/share`.
+- `mountpath`: Path to share screen. _Optional_, defaults to `/share`.

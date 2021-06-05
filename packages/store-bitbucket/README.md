@@ -23,25 +23,25 @@ const bitbucket = new BitbucketStore({
 The branch files will be saved to.
 
 Type: `string`\
-*Optional*, defaults to `master`
+_Optional_, defaults to `master`
 
 ### `password`
 
 A Bitbucket [app password](https://bitbucket.org/account/settings/app-passwords/).
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `repo`
 
 The name of your Bitbucket repository.
 
 Type: `string`\
-*Required*
+_Required_
 
 ### `user`
 
 Your Bitbucket username.
 
 Type: `string`\
-*Required*
+_Required_

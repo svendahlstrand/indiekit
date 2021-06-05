@@ -18,10 +18,10 @@ const mediaEndpoint = new MediaEndpoint({
 
 ### Options
 
-* `mountpath`: Path to listen to media upload requests. *Optional*, defaults to `/media`.
+- `mountpath`: Path to listen to media upload requests. _Optional_, defaults to `/media`.
 
 ### Supported endpoint queries
 
-* Previously published media: `/media?q=source`
+- Previously published media: `/media?q=source`
 
   Supports `filter`, `limit` and `offset` and parameters. For example, `/media?q=source&filter=web&limit=10&offset=10`.
