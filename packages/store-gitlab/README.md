@@ -9,7 +9,7 @@ Store IndieWeb content on GitLab.
 ## Configuration
 
 ```js
-const GitlabStore = require('@indiekit/store-gitlab');
+const GitlabStore = require("@indiekit/store-gitlab");
 
 const gitlab = new GitlabStore({
   // config options here

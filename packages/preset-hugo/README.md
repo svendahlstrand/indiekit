@@ -9,7 +9,7 @@ Indiekit preset for Hugo-based websites.
 ## Configuration
 
 ```js
-const HugoPreset = require('@indiekit/preset-hugo');
+const HugoPreset = require("@indiekit/preset-hugo");
 
 const hugo = new HugoPreset({
   // config options here

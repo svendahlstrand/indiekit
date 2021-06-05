@@ -1,9 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for Indiekit
-title: ''
+title: ""
 labels: enhancement
-assignees: ''
+assignees: ""
 ---
 
 ## Is your feature request related to a problem?

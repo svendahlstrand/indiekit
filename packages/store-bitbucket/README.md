@@ -9,7 +9,7 @@ Store IndieWeb content on Bitbucket.
 ## Usage
 
 ```js
-const BitbucketStore = require('@indiekit/store-bitbucket');
+const BitbucketStore = require("@indiekit/store-bitbucket");
 
 const bitbucket = new BitbucketStore({
   // config options here

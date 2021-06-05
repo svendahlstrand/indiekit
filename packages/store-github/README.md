@@ -9,7 +9,7 @@ Store IndieWeb content on GitHub.
 ## Usage
 
 ```js
-const GithubStore = require('@indiekit/store-github');
+const GithubStore = require("@indiekit/store-github");
 
 const github = new GithubStore({
   // config options here

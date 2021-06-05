@@ -9,7 +9,7 @@ Store IndieWeb content on Gitea.
 ## Configuration
 
 ```js
-const GiteaStore = require('@indiekit/store-gitea');
+const GiteaStore = require("@indiekit/store-gitea");
 
 const gitea = new GiteaStore({
   // config options here

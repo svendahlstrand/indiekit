@@ -9,7 +9,7 @@ Syndicate IndieWeb content to the Internet Archive.
 ## Usage
 
 ```js
-const InternetArchiveSyndicator = require('@indiekit/syndicator-internet-archive');
+const InternetArchiveSyndicator = require("@indiekit/syndicator-internet-archive");
 
 const internetArchive = new InternetArchiveSyndicator({
   // config options here

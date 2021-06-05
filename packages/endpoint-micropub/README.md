@@ -9,7 +9,7 @@ Micropub endpoint for Indiekit.
 ## Configuration
 
 ```js
-const MicropubEndpoint = require('@indiekit/endpoint-micropub');
+const MicropubEndpoint = require("@indiekit/endpoint-micropub");
 
 const micropubEndpoint = new MicropubEndpoint({
   // config options here

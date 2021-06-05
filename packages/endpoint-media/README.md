@@ -9,7 +9,7 @@ Micropub media endpoint for Indiekit.
 ## Configuration
 
 ```js
-const MediaEndpoint = require('@indiekit/endpoint-media');
+const MediaEndpoint = require("@indiekit/endpoint-media");
 
 const mediaEndpoint = new MediaEndpoint({
   // config options here

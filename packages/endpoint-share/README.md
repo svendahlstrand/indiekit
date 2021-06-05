@@ -9,7 +9,7 @@ Share endpoint for Indiekit. Inspired and developed from [an idea described by M
 ## Configuration
 
 ```js
-const ShareEndpoint = require('@indiekit/endpoint-share');
+const ShareEndpoint = require("@indiekit/endpoint-share");
 
 const shareEndpoint = new ShareEndpoint({
   // config options here

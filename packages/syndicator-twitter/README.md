@@ -9,7 +9,7 @@ Syndicate IndieWeb content to Twitter.
 ## Usage
 
 ```js
-const TwitterSyndicator = require('@indiekit/syndicator-twitter');
+const TwitterSyndicator = require("@indiekit/syndicator-twitter");
 
 const twitter = new TwitterSyndicator({
   // config options here

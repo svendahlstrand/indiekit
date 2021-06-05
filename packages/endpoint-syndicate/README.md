@@ -9,7 +9,7 @@ Syndication endpoint for Indiekit.
 ## Configuration
 
 ```js
-const SyndicateEndpoint = require('@indiekit/endpoint-syndicate');
+const SyndicateEndpoint = require("@indiekit/endpoint-syndicate");
 
 const syndicateEndpoint = new SyndicateEndpoint({
   // config options here
