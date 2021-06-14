@@ -1,6 +1,6 @@
-import 'dotenv/config.js'; // eslint-disable-line import/no-unassigned-import
-import {GithubStore} from '../../packages/store-github/index.js';
-import {JekyllPreset} from '../../packages/preset-jekyll/index.js';
+import "dotenv/config.js"; // eslint-disable-line import/no-unassigned-import
+import { GithubStore } from "../../packages/store-github/index.js";
+import { JekyllPreset } from "../../packages/preset-jekyll/index.js";
 
 export const publication = {
   categories: `${process.env.TEST_PUBLICATION_URL}categories.json`,
@@ -9,12 +9,12 @@ export const publication = {
     return JSON.stringify(properties);
   },
   store: new GithubStore({
-    token: 'abc123',
-    user: 'user',
-    repo: 'repo'
+    token: "abc123",
+    user: "user",
+    repo: "repo",
   }),
-  storeMessageTemplate: metaData => {
+  storeMessageTemplate: (metaData) => {
     return `${metaData.action} ${metaData.postType} ${metaData.fileType}`;
   },
-  preset: new JekyllPreset()
+  preset: new JekyllPreset(),
 };

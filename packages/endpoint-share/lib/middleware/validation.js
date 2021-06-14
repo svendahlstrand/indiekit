@@ -1,18 +1,18 @@
-import validator from 'express-validator';
+import validator from "express-validator";
 
-const {check} = validator;
+const { check } = validator;
 
 export const validate = [
-  check('name')
+  check("name")
     .not()
     .isEmpty()
-    .withMessage((value, {req, path}) => {
+    .withMessage((value, { req, path }) => {
       return req.__(`share.error.${path}`);
     }),
-  check('bookmark-of')
+  check("bookmark-of")
     .exists()
     .isURL()
-    .withMessage((value, {req, path}) => {
+    .withMessage((value, { req, path }) => {
       return req.__(`share.error.${path}`);
-    })
+    }),
 ];

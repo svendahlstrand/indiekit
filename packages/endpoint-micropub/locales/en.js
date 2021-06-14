@@ -1,10 +1,10 @@
 export const en = {
   micropub: {
-    title: 'Posts',
-    properties: 'Properties',
+    title: "Posts",
+    properties: "Properties",
     posts: {
-      title: 'Published posts',
-      none: 'No posts'
-    }
-  }
+      title: "Published posts",
+      none: "No posts",
+    },
+  },
 };

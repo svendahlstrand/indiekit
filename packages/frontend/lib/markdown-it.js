@@ -1,14 +1,14 @@
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
-const markdownItDeflist = require('markdown-it-deflist');
-const markdownItPrism = require('markdown-it-prism');
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItDeflist = require("markdown-it-deflist");
+const markdownItPrism = require("markdown-it-prism");
 
 module.exports = (() => {
   const options = {
     html: true,
     breaks: true,
     linkify: true,
-    typographer: true
+    typographer: true,
   };
 
   const parser = markdownIt(options);
@@ -16,7 +16,7 @@ module.exports = (() => {
     .use(markdownItAnchor, {
       permalink: true,
       permalinkSpace: false,
-      permalinkSymbol: '#'
+      permalinkSymbol: "#",
     })
     .use(markdownItDeflist)
     .use(markdownItPrism);

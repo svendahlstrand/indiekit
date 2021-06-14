@@ -1,13 +1,13 @@
-import _ from 'lodash';
-import {defaultConfig} from './config/defaults.js';
-import {mongodbConfig} from './config/mongodb.js';
-import {serverConfig} from './config/server.js';
-import {Cache} from './lib/cache.js';
+import _ from "lodash";
+import { defaultConfig } from "./config/defaults.js";
+import { mongodbConfig } from "./config/mongodb.js";
+import { serverConfig } from "./config/server.js";
+import { Cache } from "./lib/cache.js";
 import {
   getCategories,
   getPostTemplate,
-  getPostTypes
-} from './lib/publication.js';
+  getPostTypes,
+} from "./lib/publication.js";
 
 export const Indiekit = class {
   constructor(config) {
@@ -23,8 +23,8 @@ export const Indiekit = class {
   }
 
   set(key, value) {
-    if (typeof key !== 'string') {
-      throw new TypeError('Configuration key must be a string');
+    if (typeof key !== "string") {
+      throw new TypeError("Configuration key must be a string");
     }
 
     if (!value) {
@@ -40,12 +40,18 @@ export const Indiekit = class {
   }
 
   addLocale(language, translations) {
-    this.application.locales[language] = _.merge(this.application.locales[language], translations);
+    this.application.locales[language] = _.merge(
+      this.application.locales[language],
+      translations
+    );
   }
 
   addNavigation(item) {
     item = Array.isArray(item) ? item : [item];
-    this.application.navigationItems = [...this.application.navigationItems, ...item];
+    this.application.navigationItems = [
+      ...this.application.navigationItems,
+      ...item,
+    ];
   }
 
   addRoute(route) {
@@ -64,9 +70,9 @@ export const Indiekit = class {
     // Setup databases
     if (database) {
       this.application.hasDatabase = true;
-      this.application.cache = database.collection('cache');
-      this.publication.posts = database.collection('posts');
-      this.publication.media = database.collection('media');
+      this.application.cache = database.collection("cache");
+      this.publication.posts = database.collection("posts");
+      this.publication.media = database.collection("media");
     }
 
     // Setup cache
@@ -89,7 +95,7 @@ export const Indiekit = class {
     try {
       const indiekitConfig = await this.getConfig();
       const server = serverConfig(indiekitConfig);
-      const {name, version} = indiekitConfig.application;
+      const { name, version } = indiekitConfig.application;
       const port = options.port || indiekitConfig.server.port;
 
       return server.listen(port, () => {

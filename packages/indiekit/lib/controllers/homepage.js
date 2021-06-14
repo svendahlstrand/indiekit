@@ -1,3 +1,3 @@
 export const viewHomepage = (request, response) => {
-  return response.redirect('/status');
+  return response.redirect("/status");
 };

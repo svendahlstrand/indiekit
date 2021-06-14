@@ -1,58 +1,61 @@
 export const de = {
-  error: 'Error',
-  errorSummaryTitle: 'Es ist ein Fehler aufgetreten',
-  noValue: 'Nicht vorgesehen',
-  optionalValue: '(optional)',
+  error: "Error",
+  errorSummaryTitle: "Es ist ein Fehler aufgetreten",
+  noValue: "Nicht vorgesehen",
+  optionalValue: "(optional)",
   guidance: {
-    discovery: 'Fügen Sie dem `<head>` Ihrer Website die folgenden Werte hinzu, damit Micropub-Kunden %s erkennen und um Erlaubnis bitten, auf Ihrer Website posten zu dürfen'
+    discovery:
+      "Fügen Sie dem `<head>` Ihrer Website die folgenden Werte hinzu, damit Micropub-Kunden %s erkennen und um Erlaubnis bitten, auf Ihrer Website posten zu dürfen",
   },
   errors: {
     notFound: {
-      title: 'Seite nicht gefunden',
-      content: 'Wenn Sie eine Webadresse eingegeben haben, überprüfen Sie, ob diese korrekt ist.'
-    }
+      title: "Seite nicht gefunden",
+      content:
+        "Wenn Sie eine Webadresse eingegeben haben, überprüfen Sie, ob diese korrekt ist.",
+    },
   },
   session: {
     login: {
-      title: 'Einloggen',
-      description: 'Melden Sie sich mit IndieAuth an, um zu überprüfen, ob Sie %s besitzen',
-      me: 'Webadresse',
-      submit: 'Einloggen mit IndieAuth',
+      title: "Einloggen",
+      description:
+        "Melden Sie sich mit IndieAuth an, um zu überprüfen, ob Sie %s besitzen",
+      me: "Webadresse",
+      submit: "Einloggen mit IndieAuth",
       error: {
-        validateRedirect: 'Ungültige Weiterleitung versucht',
-        validateState: 'Fehlender Code oder Zustandsinkongruenz'
-      }
+        validateRedirect: "Ungültige Weiterleitung versucht",
+        validateState: "Fehlender Code oder Zustandsinkongruenz",
+      },
     },
     logout: {
-      title: 'Ausloggen'
-    }
+      title: "Ausloggen",
+    },
   },
   status: {
-    title: 'Serverstatus',
+    title: "Serverstatus",
     application: {
-      summaryTitle: 'Anwendungseinstellungen',
-      name: 'Name',
-      locale: 'Sprache',
-      themeColor: 'Themenfarbe',
-      themeColorScheme: 'Thema',
+      summaryTitle: "Anwendungseinstellungen",
+      name: "Name",
+      locale: "Sprache",
+      themeColor: "Themenfarbe",
+      themeColorScheme: "Thema",
       themeColorSchemeValue: {
-        automatic: 'Automatisch',
-        light: 'Licht',
-        dark: 'Dunkel'
+        automatic: "Automatisch",
+        light: "Licht",
+        dark: "Dunkel",
       },
-      endpoints: 'Endpunkte'
+      endpoints: "Endpunkte",
     },
     publication: {
-      summaryTitle: 'Veröffentlichungseinstellungen',
-      me: 'Webadresse',
-      locale: 'Sprache',
-      timeZone: 'Zeitzone',
-      store: 'Geschäft',
-      preset: 'Voreinstellung',
-      postTypes: 'Beitragstypen',
-      syndicationTargets: 'Syndikationsziele',
-      mediaEndpoint: 'Medienendpunkt',
-      accessToken: 'Zugangstoken'
-    }
-  }
+      summaryTitle: "Veröffentlichungseinstellungen",
+      me: "Webadresse",
+      locale: "Sprache",
+      timeZone: "Zeitzone",
+      store: "Geschäft",
+      preset: "Voreinstellung",
+      postTypes: "Beitragstypen",
+      syndicationTargets: "Syndikationsziele",
+      mediaEndpoint: "Medienendpunkt",
+      accessToken: "Zugangstoken",
+    },
+  },
 };

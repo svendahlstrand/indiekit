@@ -1,10 +1,10 @@
-import test from 'ava';
-import {server} from '@indiekit-test/server';
+import test from "ava";
+import { server } from "@indiekit-test/server";
 
-test('Returns robots.txt', async t => {
+test("Returns robots.txt", async (t) => {
   const request = await server;
 
-  const result = await request.get('/robots.txt');
+  const result = await request.get("/robots.txt");
 
-  t.is(result.text, 'User-agent: *\nDisallow: /');
+  t.is(result.text, "User-agent: *\nDisallow: /");
 });

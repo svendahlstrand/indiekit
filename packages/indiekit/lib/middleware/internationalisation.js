@@ -1,4 +1,4 @@
-import i18n from 'i18n';
+import i18n from "i18n";
 
 /**
  * Set locale
@@ -6,18 +6,18 @@ import i18n from 'i18n';
  * @param {object} indiekitConfig Indiekit config
  * @returns {Function} Next middleware
  */
-export const internationalisation = indiekitConfig => {
+export const internationalisation = (indiekitConfig) => {
   return async function (request, response, next) {
     try {
-      const {application} = indiekitConfig;
+      const { application } = indiekitConfig;
 
       i18n.configure({
-        cookie: 'locale',
-        defaultLocale: 'en',
-        indent: '  ',
+        cookie: "locale",
+        defaultLocale: "en",
+        indent: "  ",
         objectNotation: true,
-        queryParameter: 'lang',
-        staticCatalog: application.locales
+        queryParameter: "lang",
+        staticCatalog: application.locales,
       });
 
       i18n.init(request, response);

@@ -1,11 +1,11 @@
 export const en = {
   media: {
-    title: 'Files',
-    download: 'Download file',
-    properties: 'Properties',
+    title: "Files",
+    download: "Download file",
+    properties: "Properties",
     files: {
-      title: 'Uploaded files',
-      none: 'No files'
-    }
-  }
+      title: "Uploaded files",
+      none: "No files",
+    },
+  },
 };

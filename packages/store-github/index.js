@@ -1,7 +1,7 @@
-import octokit from '@octokit/rest';
+import octokit from "@octokit/rest";
 
 const defaults = {
-  branch: 'master'
+  branch: "master",
 };
 
 /**
@@ -10,15 +10,15 @@ const defaults = {
  */
 export const GithubStore = class {
   constructor(options = {}) {
-    this.id = 'github';
-    this.name = 'GitHub';
-    this.options = {...defaults, ...options};
+    this.id = "github";
+    this.name = "GitHub";
+    this.options = { ...defaults, ...options };
   }
 
   get client() {
-    const {Octokit} = octokit;
+    const { Octokit } = octokit;
     return new Octokit({
-      auth: `token ${this.options.token}`
+      auth: `token ${this.options.token}`,
     });
   }
 
@@ -32,14 +32,14 @@ export const GithubStore = class {
    * @see https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-or-update-file-contents
    */
   async createFile(path, content, message) {
-    content = Buffer.from(content).toString('base64');
+    content = Buffer.from(content).toString("base64");
     const response = await this.client.repos.createOrUpdateFileContents({
       owner: this.options.user,
       repo: this.options.repo,
       branch: this.options.branch,
       message,
       path,
-      content
+      content,
     });
     return response;
   }
@@ -56,9 +56,11 @@ export const GithubStore = class {
       owner: this.options.user,
       repo: this.options.repo,
       ref: this.options.branch,
-      path
+      path,
     });
-    const content = Buffer.from(response.data.content, 'base64').toString('utf8');
+    const content = Buffer.from(response.data.content, "base64").toString(
+      "utf8"
+    );
     return content;
   }
 
@@ -72,24 +74,26 @@ export const GithubStore = class {
    * @see https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-or-update-file-contents
    */
   async updateFile(path, content, message) {
-    const contents = await this.client.repos.getContent({
-      owner: this.options.user,
-      repo: this.options.repo,
-      ref: this.options.branch,
-      path
-    }).catch(() => {
-      return false;
-    });
+    const contents = await this.client.repos
+      .getContent({
+        owner: this.options.user,
+        repo: this.options.repo,
+        ref: this.options.branch,
+        path,
+      })
+      .catch(() => {
+        return false;
+      });
 
-    content = Buffer.from(content).toString('base64');
+    content = Buffer.from(content).toString("base64");
     const response = await this.client.repos.createOrUpdateFileContents({
       owner: this.options.user,
       repo: this.options.repo,
       branch: this.options.branch,
-      sha: (contents) ? contents.data.sha : false,
+      sha: contents ? contents.data.sha : false,
       message,
       path,
-      content
+      content,
     });
     return response;
   }
@@ -107,7 +111,7 @@ export const GithubStore = class {
       owner: this.options.user,
       repo: this.options.repo,
       ref: this.options.branch,
-      path
+      path,
     });
     const response = await this.client.repos.deleteFile({
       owner: this.options.user,
@@ -115,7 +119,7 @@ export const GithubStore = class {
       branch: this.options.branch,
       sha: contents.data.sha,
       message,
-      path
+      path,
     });
     return response;
   }

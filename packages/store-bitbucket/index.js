@@ -1,7 +1,7 @@
-import bitbucket from 'bitbucket';
+import bitbucket from "bitbucket";
 
 const defaults = {
-  branch: 'master'
+  branch: "master",
 };
 
 /**
@@ -10,19 +10,19 @@ const defaults = {
  */
 export const BitbucketStore = class {
   constructor(options = {}) {
-    this.id = 'bitbucket';
-    this.name = 'Bitbucket';
-    this.options = {...defaults, ...options};
+    this.id = "bitbucket";
+    this.name = "Bitbucket";
+    this.options = { ...defaults, ...options };
   }
 
   get client() {
-    const {Bitbucket} = bitbucket;
+    const { Bitbucket } = bitbucket;
     return new Bitbucket({
       auth: {
         username: this.options.user,
-        password: this.options.password
+        password: this.options.password,
       },
-      notice: false
+      notice: false,
     });
   }
 
@@ -40,8 +40,8 @@ export const BitbucketStore = class {
       [path]: content,
       branch: this.options.branch,
       message,
-      repo_slug: this.options.repo, /* eslint-disable-line camelcase */
-      workspace: this.options.user
+      repo_slug: this.options.repo /* eslint-disable-line camelcase */,
+      workspace: this.options.user,
     });
     return response;
   }
@@ -55,11 +55,11 @@ export const BitbucketStore = class {
    */
   async readFile(path) {
     const response = await this.client.repositories.readSrc({
-      format: 'rendered',
+      format: "rendered",
       commit: this.options.branch,
       path,
-      repo_slug: this.options.repo, /* eslint-disable-line camelcase */
-      workspace: this.options.user
+      repo_slug: this.options.repo /* eslint-disable-line camelcase */,
+      workspace: this.options.user,
     });
     const content = response.data.raw;
     return content;
@@ -79,8 +79,8 @@ export const BitbucketStore = class {
       [path]: content,
       branch: this.options.branch,
       message,
-      repo_slug: this.options.repo, /* eslint-disable-line camelcase */
-      workspace: this.options.user
+      repo_slug: this.options.repo /* eslint-disable-line camelcase */,
+      workspace: this.options.user,
     });
     return response;
   }
@@ -98,8 +98,8 @@ export const BitbucketStore = class {
       branch: this.options.branch,
       files: path,
       message,
-      repo_slug: this.options.repo, /* eslint-disable-line camelcase */
-      workspace: this.options.user
+      repo_slug: this.options.repo /* eslint-disable-line camelcase */,
+      workspace: this.options.user,
     });
     return response;
   }

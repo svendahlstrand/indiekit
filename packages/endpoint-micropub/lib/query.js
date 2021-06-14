@@ -6,26 +6,22 @@
  * @returns {object} Queryable config
  */
 export const getConfig = (application, publication) => {
-  const {url} = application;
+  const { url } = application;
 
-  const {
-    mediaEndpoint,
-    postTypes,
-    syndicationTargets
-  } = publication;
+  const { mediaEndpoint, postTypes, syndicationTargets } = publication;
 
   // Supported queries
   const q = [
-    'category',
-    'config',
-    'media-endpoint',
-    'post-types',
-    'source',
-    'syndicate-to'
+    "category",
+    "config",
+    "media-endpoint",
+    "post-types",
+    "source",
+    "syndicate-to",
   ];
 
   // Ensure syndication targets use absolute URLs
-  const syndicateTo = syndicationTargets.map(target => target.info);
+  const syndicateTo = syndicationTargets.map((target) => target.info);
   for (const info of syndicateTo) {
     if (info.service && info.service.photo) {
       info.service.photo = new URL(info.service.photo, url).href;
@@ -33,13 +29,13 @@ export const getConfig = (application, publication) => {
   }
 
   return {
-    'media-endpoint': mediaEndpoint,
-    'post-types': postTypes.map(postType => ({
+    "media-endpoint": mediaEndpoint,
+    "post-types": postTypes.map((postType) => ({
       type: postType.type,
-      name: postType.name
+      name: postType.name,
     })),
-    'syndicate-to': syndicateTo,
-    q
+    "syndicate-to": syndicateTo,
+    q,
   };
 };
 
@@ -51,11 +47,11 @@ export const getConfig = (application, publication) => {
  * @returns {Array} Updated list
  */
 export const queryList = (list, options) => {
-  const {filter, limit} = options;
+  const { filter, limit } = options;
   list = list || [];
 
   if (filter) {
-    list = list.filter(item => {
+    list = list.filter((item) => {
       item = JSON.stringify(item);
       item = item.toLowerCase();
       return item.includes(filter);

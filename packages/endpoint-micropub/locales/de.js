@@ -1,10 +1,10 @@
 export const de = {
   micropub: {
-    title: 'Beiträge',
-    properties: 'Eigenschaften',
+    title: "Beiträge",
+    properties: "Eigenschaften",
     posts: {
-      title: 'Hochgeladene Dateien',
-      none: 'Keine Beiträge'
-    }
-  }
+      title: "Hochgeladene Dateien",
+      none: "Keine Beiträge",
+    },
+  },
 };

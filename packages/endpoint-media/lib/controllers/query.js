@@ -1,7 +1,7 @@
-import httpError from 'http-errors';
-import {queryList} from '../query.js';
+import httpError from "http-errors";
+import { queryList } from "../query.js";
 
-export const queryController = publication => {
+export const queryController = (publication) => {
   /**
    * Query endpoint
    *
@@ -11,22 +11,25 @@ export const queryController = publication => {
    * @returns {object} HTTP response
    */
   return async (request, response, next) => {
-    const {query} = request;
-    const {filter, limit, offset} = query;
+    const { query } = request;
+    const { filter, limit, offset } = query;
 
     try {
       if (!query.q) {
-        throw new Error('Invalid query');
+        throw new Error("Invalid query");
       }
 
       switch (query.q) {
-        case 'source': {
+        case "source": {
           // Return previously uploaded media
-          const items = publication.media ?
-            await publication.media.find().map(media => media.properties).toArray() :
-            [];
+          const items = publication.media
+            ? await publication.media
+                .find()
+                .map((media) => media.properties)
+                .toArray()
+            : [];
           return response.json({
-            items: queryList(items, {filter, limit, offset})
+            items: queryList(items, { filter, limit, offset }),
           });
         }
 

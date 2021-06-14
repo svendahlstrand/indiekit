@@ -1,4 +1,4 @@
-import {getBearerToken} from '../tokens.js';
+import { getBearerToken } from "../tokens.js";
 
 export const authenticate = (request, response, next) => {
   try {

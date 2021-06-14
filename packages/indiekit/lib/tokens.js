@@ -1,8 +1,8 @@
-import got from 'got';
-import HttpError from 'http-errors';
-import normalizeUrl from 'normalize-url';
+import got from "got";
+import HttpError from "http-errors";
+import normalizeUrl from "normalize-url";
 
-export const getBearerToken = request => {
+export const getBearerToken = (request) => {
   if (request.session && request.session.token) {
     const bearerToken = request.session.token;
     return bearerToken;
@@ -19,7 +19,7 @@ export const getBearerToken = request => {
     return bearerToken;
   }
 
-  throw new HttpError.BadRequest('No bearer token provided by request');
+  throw new HttpError.BadRequest("No bearer token provided by request");
 };
 
 /**
@@ -31,18 +31,20 @@ export const getBearerToken = request => {
  */
 export const requestAccessToken = async (tokenEndpoint, bearerToken) => {
   try {
-    const {body} = await got(tokenEndpoint, {
+    const { body } = await got(tokenEndpoint, {
       headers: {
-        Authorization: `Bearer ${bearerToken}`
+        Authorization: `Bearer ${bearerToken}`,
       },
-      responseType: 'json'
+      responseType: "json",
     });
 
     const accessToken = body;
     return accessToken;
   } catch (error) {
     const statusCode = error.response ? error.response.statusCode : 500;
-    const message = error.response ? error.response.body.error_description : error;
+    const message = error.response
+      ? error.response.body.error_description
+      : error;
     throw new HttpError(statusCode, message);
   }
 };
@@ -55,12 +57,12 @@ export const requestAccessToken = async (tokenEndpoint, bearerToken) => {
 export const verifyAccessToken = (me, accessToken) => {
   // Throw error if no publication URL provided
   if (!me) {
-    throw new HttpError(400, 'No publication URL to verify');
+    throw new HttpError(400, "No publication URL to verify");
   }
 
   // Throw error if access token does not contain a `me` value
   if (!accessToken.me) {
-    throw new HttpError(401, 'There was a problem with this access token');
+    throw new HttpError(401, "There was a problem with this access token");
   }
 
   // Normalize publication and token URLs before comparing
@@ -70,7 +72,10 @@ export const verifyAccessToken = (me, accessToken) => {
 
   // Publication URL does not match that provided by access token
   if (!isAuthenticated) {
-    throw new HttpError(403, 'User does not have permission to perform request');
+    throw new HttpError(
+      403,
+      "User does not have permission to perform request"
+    );
   }
 
   return accessToken;

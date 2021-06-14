@@ -1,5 +1,5 @@
-import {getNavigation} from '../navigation.js';
-import {getMediaEndpoint} from '../publication.js';
+import { getNavigation } from "../navigation.js";
+import { getMediaEndpoint } from "../publication.js";
 
 /**
  * Expose config to frontend templates
@@ -7,10 +7,10 @@ import {getMediaEndpoint} from '../publication.js';
  * @param {object} indiekitConfig Indiekit config
  * @returns {Function} Next middleware
  */
-export const locals = indiekitConfig => {
+export const locals = (indiekitConfig) => {
   return async function (request, response, next) {
     try {
-      const {application, publication} = indiekitConfig;
+      const { application, publication } = indiekitConfig;
 
       // Application
       application.localeUsed = request.getLocale();

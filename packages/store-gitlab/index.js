@@ -1,8 +1,8 @@
-import gitbeaker from '@gitbeaker/node';
+import gitbeaker from "@gitbeaker/node";
 
 const defaults = {
-  branch: 'master',
-  instance: 'https://gitlab.com'
+  branch: "master",
+  instance: "https://gitlab.com",
 };
 
 /**
@@ -11,17 +11,17 @@ const defaults = {
  */
 export const GitlabStore = class {
   constructor(options = {}) {
-    this.id = 'gitlab';
-    this.name = 'GitLab';
-    this.options = {...defaults, ...options};
+    this.id = "gitlab";
+    this.name = "GitLab";
+    this.options = { ...defaults, ...options };
     this._projectId = options.projectId || `${options.user}/${options.repo}`;
   }
 
   get client() {
-    const {Gitlab} = gitbeaker;
+    const { Gitlab } = gitbeaker;
     return new Gitlab({
       host: this.options.instance,
-      token: this.options.token
+      token: this.options.token,
     });
   }
 
@@ -35,14 +35,15 @@ export const GitlabStore = class {
    * @see https://docs.gitlab.com/ee/api/repository_files.html#create-new-file-in-repository
    */
   async createFile(path, content, message) {
-    content = Buffer.from(content).toString('base64');
+    content = Buffer.from(content).toString("base64");
     const response = await this.client.RepositoryFiles.create(
       this._projectId,
       path,
       this.options.branch,
       content,
-      message, {
-        encoding: 'base64'
+      message,
+      {
+        encoding: "base64",
       }
     );
     return response;
@@ -61,7 +62,7 @@ export const GitlabStore = class {
       path,
       this.options.branch
     );
-    const content = Buffer.from(response.content, 'base64').toString('utf8');
+    const content = Buffer.from(response.content, "base64").toString("utf8");
     return content;
   }
 
@@ -75,14 +76,15 @@ export const GitlabStore = class {
    * @see https://docs.gitlab.com/ee/api/repository_files.html#update-existing-file-in-repository
    */
   async updateFile(path, content, message) {
-    content = Buffer.from(content).toString('base64');
+    content = Buffer.from(content).toString("base64");
     const response = await this.client.RepositoryFiles.edit(
       this._projectId,
       path,
       this.options.branch,
       content,
-      message, {
-        encoding: 'base64'
+      message,
+      {
+        encoding: "base64",
       }
     );
     return response;
