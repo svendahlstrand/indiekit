@@ -1,0 +1,8 @@
+# Testing and coverage
+coverage
+
+# Dependencies
+node_modules/
+
+# Changelogs
+CHANGELOG.md
