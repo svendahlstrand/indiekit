@@ -49,7 +49,7 @@ If you want to see how Indiekit works, deploy this application to Heroku.
 
 Clicking the button below will guide you through the process.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/getindiekit/indiekit/tree/main)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/svendahlstrand/indiekit/tree/main)
 
 You’ll be asked to provide the following values:
 
