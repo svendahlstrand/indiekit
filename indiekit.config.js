@@ -34,9 +34,23 @@ indiekit.set('publication.postTypes', [{
     url: 'notes/{t}'
   },
   media: {
-    path: 'images/{filename}',
+    path: 'images/{originalname}',
   }
 }]);
+
+indiekit.set('publication.postTemplate', properties => {
+  const frontmatter = '---\n---\n';
+  const photos = (properties.photo || []).map(image => `{% imagesize ${image.url}:img alt='${image.alt}' %}`).join('\n');
+  let content;
+
+  if (properties.content) {
+    content = properties.content.text || properties.content.html || properties.content;
+  } else {
+    content = '';
+  }
+
+  return frontmatter + content + photos + '\n';
+});
 
 // Publication settings
 indiekit.set('publication.me', process.env.PUBLICATION_URL);
