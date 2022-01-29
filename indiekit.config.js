@@ -3,7 +3,6 @@ import 'dotenv/config.js'; // eslint-disable-line import/no-unassigned-import
 import {Indiekit} from './packages/indiekit/index.js';
 import {JekyllPreset} from './packages/preset-jekyll/index.js';
 import {GithubStore} from './packages/store-github/index.js';
-import {TwitterSyndicator} from './packages/syndicator-twitter/index.js';
 
 // New indiekit instance
 const indiekit = new Indiekit();
@@ -18,6 +17,26 @@ const github = new GithubStore({
   branch: process.env.GITHUB_BRANCH,
   token: process.env.GITHUB_TOKEN
 });
+
+// Override preset post type
+indiekit.set('publication.postTypes', [{
+  type: 'note',
+  name: 'Note',
+  post: {
+    path: '_notes/{t}.md',
+    url: 'notes/{t}'
+  },
+}, {
+  type: 'photo',
+  name: 'Photo',
+  post: {
+    path: '_notes/{t}.md',
+    url: 'notes/{t}'
+  },
+  media: {
+    path: 'images/{filename}',
+  }
+}]);
 
 // Publication settings
 indiekit.set('publication.me', process.env.PUBLICATION_URL);
