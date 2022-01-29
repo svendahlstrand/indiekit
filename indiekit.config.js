@@ -52,6 +52,13 @@ indiekit.set('publication.postTemplate', properties => {
   return frontmatter + content + photos + '\n';
 });
 
+const capitilize = text => { return text.charAt(0).toUpperCase() + text.slice(1) };
+
+indiekit.set('publication.storeMessageTemplate', metaData => {
+  const {action, postType, fileType} = metaData;
+  return `${capitilize(action)} ${postType} ${fileType}.`;
+});
+
 // Publication settings
 indiekit.set('publication.me', process.env.PUBLICATION_URL);
 indiekit.set('publication.preset', jekyll);
